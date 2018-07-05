@@ -6,21 +6,21 @@ import swal from 'sweetalert';
 
 
 
-const fs = require('fs');
-var twilio = require('twilio');
+// const fs = require('fs');
+// var twilio = require('twilio');
 
-var accountSid = 'AC96238b59aa712b06782efb300aff3b1b'; // Your Account SID from www.twilio.com/console
-var authToken = '11629c5553952f47f29f3465afb3c719';   // Your Auth Token from www.twilio.com/console
+// var accountSid = 'AC96238b59aa712b06782efb300aff3b1b'; // Your Account SID from www.twilio.com/console
+// var authToken = '11629c5553952f47f29f3465afb3c719';   // Your Auth Token from www.twilio.com/console
 
-var twilio = require('twilio');
-var client = new twilio(accountSid, authToken);
+// var twilio = require('twilio');
+// var client = new twilio(accountSid, authToken);
 
-client.messages.create({
-    body: 'Hello from Node',
-    to: '+918527448428',  // Text this number
-    from: '+919205169278' // From a valid Twilio number
-})
-.then((message) => console.log(message.sid));
+// client.messages.create({
+//     body: 'Hello from Node',
+//     to: '+918527448428',  // Text this number
+//     from: '+919205169278' // From a valid Twilio number
+// })
+// .then((message) => console.log(message.sid));
 
 
 const server = new Hapi.Server();
