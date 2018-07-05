@@ -882,75 +882,74 @@ const routes = [
 // ************************************************************
 
 
-// {
-// 	method: 'GET',
-// 	path: '/',
-// 	handler: (request, reply) => {
-// 		// reply.view('index')
-
-// 	}
-// },
 {
 	method: 'GET',
 	path: '/',
-	config	: {
-		 //include this route in swagger documentation
-		 tags:['api'],
-		 description:"getting jobs",
-         notes:"in this route we are getting all jobs"
-     },
-	handler: (request, reply) =>{
-		var jobcategory = {};
-		var services = {};
-		var recentsers = {};	
-		var recentjobs = {};
-		var recentworkers = {}
-		JobCategoryModel.find({}, (err, allJobCategory) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				jobcategory=allJobCategory;
-			}
-		})
-		ServiceModel1.find({}, (err, allService) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				services=allService;
-				// console.log(jobcategory)
-				// console.log(services)
-			}
-		})
-		ServiceModel.find().limit(10).exec({}, (err, recentservices) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				recentsers=recentservices;
-			}
-		}) 
-		jobsModel.find().limit(5).exec({}, (err, recentjob) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				recentjobs=recentjob;
-			}
-		})
-		ResumeModel.find().limit(5).exec({}, (err, recentworker) =>{
-			if (err) {
-				console.log(err);
-				throw err;
-			}else{
-				recentworkers=recentworker;
-				return reply.view('index', {alljobcategory: jobcategory, allService: services, allrecentsers : recentsers, allrecentjobs :recentjobs, allrecentworkers :recentworkers  })
-				
-			}
-		});	   
+	handler: (request, reply) => {
+		reply.view('index')
+
 	}
 },
+// {
+// 	method: 'GET',
+// 	path: '/',
+// 	config	: {
+// 		 //include this route in swagger documentation
+// 		 tags:['api'],
+// 		 description:"getting jobs",
+//          notes:"in this route we are getting all jobs"
+//      },
+// 	handler: (request, reply) =>{
+// 		var jobcategory = {};
+// 		var services = {};
+// 		var recentsers = {};	
+// 		var recentjobs = {};
+// 		var recentworkers = {}
+// 		JobCategoryModel.find({}, (err, allJobCategory) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				jobcategory=allJobCategory;
+// 			}
+// 		})
+// 		ServiceModel1.find({}, (err, allService) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				services=allService;
+// 				// console.log(jobcategory)
+// 				// console.log(services)
+// 			}
+// 		})
+// 		ServiceModel.find().limit(10).exec({}, (err, recentservices) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				recentsers=recentservices;
+// 			}
+// 		}) 
+// 		jobsModel.find().limit(5).exec({}, (err, recentjob) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				recentjobs=recentjob;
+// 			}
+// 		})
+// 		ResumeModel.find().limit(5).exec({}, (err, recentworker) =>{
+// 			if (err) {
+// 				console.log(err);
+// 				throw err;
+// 			}else{
+// 				recentworkers=recentworker;
+// 				return reply.view('index', {alljobcategory: jobcategory, allService: services, allrecentsers : recentsers, allrecentjobs :recentjobs, allrecentworkers :recentworkers  })
+// 			}
+// 		});	   
+// 	}
+// },
 {
 	method: 'POST',
 	path: '/quick/search',
